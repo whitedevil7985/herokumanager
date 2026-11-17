@@ -1,0 +1,48 @@
+{
+  "name": "github-zip-uploader",
+  "description": "Owner-only Telegram bot that uploads ZIP contents to GitHub repositories.",
+  "repository": "https://github.com/whitedevil7985/herokumanager",
+  "keywords": [
+    "telegram",
+    "github",
+    "zip-uploader"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  },
+  "env": {
+    "API_ID": {
+      "description": "Telegram API ID from my.telegram.org",
+      "required": true
+    },
+    "API_HASH": {
+      "description": "Telegram API hash from my.telegram.org",
+      "required": true
+    },
+    "BOT_TOKEN": {
+      "description": "Telegram bot token from @BotFather",
+      "required": true
+    },
+    "OWNER_ID": {
+      "description": "Your Telegram numeric user ID",
+      "required": true
+    },
+    "GITHUB_TOKEN": {
+      "description": "GitHub personal access token with repository contents write access and repository creation permission if needed",
+      "required": true
+    },
+    "GITHUB_OWNER": {
+      "description": "GitHub username that owns the target repositories",
+      "value": "whitedevil7985",
+      "required": true
+    }
+  }
+}
