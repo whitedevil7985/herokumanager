@@ -184,14 +184,12 @@ async def callbacks(_, query):
             await query.message.edit_text("Naye repository ka naam bhejo. Example: `my-uploaded-project`")
         elif query.data == "visibility:public":
             state["private"] = False
-            await query.answer("Creating public repository...")
             repo = await create_repo(state["repo_name"], False)
             state["repo"] = repo["full_name"]
             state["branch"] = repo["default_branch"]
             await ask_commit(query.message, state)
         elif query.data == "visibility:private":
             state["private"] = True
-            await query.answer("Creating private repository...")
             repo = await create_repo(state["repo_name"], True)
             state["repo"] = repo["full_name"]
             state["branch"] = repo["default_branch"]
